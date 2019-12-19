@@ -17,7 +17,8 @@ class ParticipantController extends Controller
      */
     public function index()
     {
-        return view('admin.participant.index');
+        $event = DB::table('events')->get();
+        return view('admin.participant.index', compact('event'));
     }
 
     /**
@@ -84,5 +85,16 @@ class ParticipantController extends Controller
     public function destroy(Participant $participant)
     {
         return redirect('admin.peserta.peserta');
+    }
+
+    public function view($id)
+    {
+        $participant = Participant::find($id);
+        $participantx = DB::table('participants')
+            ->join('users','participants.user_id','=','users.id')
+                ->where('events_id', $id)
+            ->join('events','participants.events_id','=','events.id')
+                ->get();
+        return view('admin.participant.participant',compact('participantx'));
     }
 }

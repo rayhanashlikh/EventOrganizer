@@ -48,7 +48,8 @@ Route::group(['prefix'=>'admin'], function () {
     });     
     Route::group(['prefix'=>'participant'], function () {
         Route::get('/', 'ParticipantController@index');
-        Route::get('/view','ParticipantController@show');
+        Route::get('/{id}/view','ParticipantController@view');
+        Route::get('/{id}', 'ParticipantController@destroy');
         });
        
 });
