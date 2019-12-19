@@ -31,16 +31,16 @@ User
                     <td>{{$no++}}</td>
                     <td>{{$participants->name}}</td>
                     <td>{{$participants->email}}</td>
-                    <td>{{$participants->name}}</td>
+                    <td>{{$participants->name_event}}</td>
                     <td>
                         <form action="/admin/participant/{{$participants->id}}" class="row" method="post">
-                        {{csrf_field()}}
-                        <!-- <button type="button" class="btn btn-sm btn-danger" name="button"
-                        onclick="confirm('Yakin ingin menghapus ?')"> <i class="fa fa-trash"></i> Hapus</button>
-                        -->
-                        <button type="submit" class="btn btn-sm btn-danger" name="button"
-                        onclick="confirm('Yakin ingin menghapus ?')"><i class="fa fa-trash"></i> Hapus</button>
-                    </form>
+                            {{csrf_field()}}
+                            <!-- <button type="button" class="btn btn-sm btn-danger" name="button"
+                            onclick="confirm('Yakin ingin menghapus ?')"> <i class="fa fa-trash"></i> Hapus</button>
+                            -->
+                            <button type="submit" class="btn btn-sm btn-danger" name="button"
+                            onclick="confirm('Yakin ingin menghapus ?')"><i class="fa fa-trash"></i> Hapus</button>
+                        </form>
                     </td>
                 </tr>
             @endforeach

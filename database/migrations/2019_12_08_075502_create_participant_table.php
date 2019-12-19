@@ -20,8 +20,8 @@ class CreateParticipantTable extends Migration
             ->references('id')->on('users') //referensi dari field id dari tabel users
             ->onDelete('cascade')
             ->onChange('cascade'); 
-            $table->bigInteger('events_id')->unsigned();
-            $table->foreign('events_id')
+            $table->bigInteger('event_id')->unsigned();
+            $table->foreign('event_id')
             ->references('id')->on('events') //referensi dari field id dari tabel users
             ->onDelete('cascade')
             ->onChange('cascade'); 

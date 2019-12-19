@@ -31,7 +31,7 @@ Event
             @foreach($event as $myevent)
             <tr>
                 <td>{{$no++}}</td>
-                <td>{{$myevent->name}}</td>
+                <td>{{$myevent->name_event}}</td>
                 <td>{{$myevent->description}}</td>
                 <td>{{$myevent->start}}</td>
                 <td>{{$myevent->finish}}</td>

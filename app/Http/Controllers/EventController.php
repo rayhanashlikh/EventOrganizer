@@ -39,7 +39,7 @@ class EventController extends Controller
      */
     public function store(Request $request)
     {
-        $name = $request->name;
+        $name_event = $request->name_event;
         $detail = $request->detail;
         $description = $request->description;
         $start = $request->start;
@@ -59,7 +59,7 @@ class EventController extends Controller
             $event->photo = $name;
         }
 
-        $event->name = $request->name;
+        $event->name_event = $request->name_event;
         $event->detail = $request->detail;
         $event->description = $request->description;
         $event->start = $request->start;
@@ -102,7 +102,7 @@ class EventController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $name = $request->name;
+        $name_event = $request->name_event;
         $detail = $request->detail;
         $description = $request->description;
         $start = $request->start;
@@ -122,7 +122,7 @@ class EventController extends Controller
             $event->photo = $name;
         }
 
-        $event->name = $request->name;
+        $event->name_event = $request->name_event;
         $event->detail = $request->detail;
         $event->description = $request->description;
         $event->start = $request->start;

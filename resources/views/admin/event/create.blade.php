@@ -18,7 +18,7 @@ Tambah Event
             <div class="row">
                 <div class="col-lg-6 form-group">
                     <label>Nama</label>
-                    <input type="text" name="name" placeholder="Nama" class="form-control"><br>
+                    <input type="text" name="name_event" placeholder="Nama" class="form-control"><br>
                     <label>Detail</label>
                     <input type="text" name="detail" placeholder="Deskripsi" class="form-control">
                 </div>

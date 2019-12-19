@@ -82,19 +82,26 @@ class ParticipantController extends Controller
      * @param  \App\Participant  $participant
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Participant $participant)
-    {
-        return redirect('admin.peserta.peserta');
-    }
+
 
     public function view($id)
     {
         $participant = Participant::find($id);
         $participantx = DB::table('participants')
             ->join('users','participants.user_id','=','users.id')
-                ->where('events_id', $id)
-            ->join('events','participants.events_id','=','events.id')
-                ->get();
+            ->where('event_id', $id)
+            ->join('events','participants.event_id','=','events.id')
+            ->get();
         return view('admin.participant.participant',compact('participantx'));
+    }
+
+    public function destroy($id)
+    {
+        $participants = Participant::find($id);
+        $participants = DB::table('participants')
+            ->join('users', 'participants.user_id', '=', 'users.id')
+            ->where('user_id', $id)
+            ->delete();
+        return redirect('admin/participant')->with('status', 'Data Berhasil Dihapus');
     }
 }

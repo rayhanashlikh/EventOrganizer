@@ -12,8 +12,8 @@ class ParticipantSeeder extends Seeder
     public function run()
     {
         DB::table('participants')->insert([
-            'user_id' => '1',
-            'events_id' => '2',
+            'user_id' => '4',
+            'event_id' => '2',
         ]);
     }
 }

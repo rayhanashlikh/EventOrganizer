@@ -18,7 +18,7 @@ Edit Event
             <div class="row">
                 <div class="col-lg-6 form-group">
                     <label>Nama</label>
-                    <input type="text" name="name" placeholder="Nama" class="form-control" value="{{$event->name}}"><br>
+                    <input type="text" name="name_event" placeholder="Nama" class="form-control" value="{{$event->name_event}}"><br>
                     <label>Detail</label>
                     <input type="text" name="detail" placeholder="Detail" class="form-control" value="{{$event->detail}}">
                 </div>

@@ -12,7 +12,7 @@ class EventSeeder extends Seeder
     public function run()
     {
         DB::table('events')->insert([
-            'name' => 'Rayhan',
+            'name_event' => 'Balap Kecoa',
             'detail'=> 'Ini detail',
             'description' => 'ini Deskripsi',
             'start' => '07.00',
