@@ -18,19 +18,27 @@ Edit Event
             <div class="row">
                 <div class="col-lg-6 form-group">
                     <label>Nama</label>
-                    <input type="text" name="nama" placeholder="Nama" class="form-control"
-                    value={{$event->nama}}><br>
-                    <label>Deskripsi</label>
-                    <input type="text" name="deskripsi" placeholder="Deskripsi" class="form-control"
-                    value={{$event->deskripsi}}>
+                    <input type="text" name="name" placeholder="Nama" class="form-control" value="{{$event->name}}"><br>
+                    <label>Detail</label>
+                    <input type="text" name="detail" placeholder="Detail" class="form-control" value="{{$event->detail}}">
                 </div>
                 <div class="col-lg-6">
-                    <label>Tanggal</label>
-                    <input type="date" name="tgl" placeholder="Tanggal" class="form-control"
-                    value={{$event->tgl}}><br>
+                    <label>Deskripsi</label>
+                    <input type="text" name="description" placeholder="Deskripsi" class="form-control" value="{{$event->description}}"><br>
+                    <label>Dimulai</label>
+                    <input type ="time" name="start" placeholder="Dimulai Pada" class="form-control" value="{{$event->start}}">
+                </div>
+                <div class="col-lg-6">
+                    <label>Berakhir</label>
+                    <input type="time" name="finish" placeholder="Berakhir Pada" class="form-control" value="{{$event->finish}}">
+                    <label>Lokasi</label>
+                    <input type="text" name="location" placeholder="Lokasi" class="form-control" value="{{$event->finish}}">
+                </div>
+                <div class="col-lg-6">
                     <label>Kuota</label>
-                    <input type="number" name="kuota" placeholder="Nama" class="form-control"
-                    value={{$event->kuota}}>
+                    <input type="number" name="quota" placeholder="Kuota Peserta" class="form-control" value="{{$event->quota}}">
+                    <label>Photo</label>
+                    <input type="file" name="photo" placeholder="Pilih Foto" class="form-control">
                 </div>
             </div><br>
             <input type="submit" value="Edit Event" class="btn btn-md btn-primary">
