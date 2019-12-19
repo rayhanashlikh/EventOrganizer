@@ -43,7 +43,7 @@ Event
 
                     <button type="button" class="btn btn-sm btn-primary" name="button" 
                         onclick="location.href='event/{{$myevent->id}}/edit'">> <i class="fa fa-pencil"></i>Edit</button>
-                    <button type="button" class="btn btn-sm btn-danger" name="button" 
+                    <button type="submit" class="btn btn-sm btn-danger" name="button" 
                         onclick="confirm('Yakin ingin menghapus ?')"> <i class="fa fa-trash"></i> Hapus</button>
                 </form>
                 </td>

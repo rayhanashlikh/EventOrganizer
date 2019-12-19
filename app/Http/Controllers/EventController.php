@@ -141,19 +141,8 @@ class EventController extends Controller
      */
     public function destroy($id)
     {
-        try {
-            $data = Event::where('id', $id)
-            ->delete();
-
-            return response()->json([
-                'message' => 'Success',
-                'data' => $data
-            ], 200);
-        } catch (\Throwable $th) {
-            return response()->json([
-                'message' => 'Failed',
-                'data' => $th
-            ], 400);
-        }
+        $event = Event::find($id);
+        $event->delete();
+        return redirect('admin/event');
     }
 }
