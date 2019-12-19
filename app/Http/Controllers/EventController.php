@@ -87,9 +87,10 @@ class EventController extends Controller
      * @param  \App\Event  $event
      * @return \Illuminate\Http\Response
      */
-    public function edit(Event $event)
+    public function edit($id)
     {
-        //
+        $event = Event::find($id);
+        return view('admin.event.edit')->with('event',$event);
     }
 
     /**
@@ -101,52 +102,35 @@ class EventController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $message = [
-            'name.required' => 'Pastikan nama sudah terisi',
-            'detail.required' => 'Pastikan detail sudah diisi',
-            'description.required' => 'Pastikan deskripsi sudah diisi',
-        ];
+        $name = $request->name;
+        $detail = $request->detail;
+        $description = $request->description;
+        $start = $request->start;
+        $finish = $request->finish;
+        $location = $request->location;
+        $quota = $request->quota;
+        $photo = $request->photo;
 
-        $validate = validator::make($request->all(),[
-            'name' => 'required|string',
-            'detail' => 'required|string',
-            'description' => 'required|string',
-            'start' => 'required|H-i',
-            'finish' => 'required',
-            'quota' => 'required|numeric',
-            'quota' => 'image|mimes:jpg,jpeg,png,svg,nmp,gif'
-        ], $message);
-
-        if($validate->fails()){
-            $this->data['message'] = 'Error';
-            $this->data['error'] = $validate->errors();
-            return $this->data;
+        $event = Event::find($id);
+        if ($request->hasFile('photo')){
+            $image = $request->file('photo');
+            $uuid4 = Uuid::uuid4();
+            $name = $uuid4->toString(). '.' .$image->getClientOriginalExtension();
+            $destinationPath = public_path('/images/Event');
+            $imagePath = $destinationPath. '/'. $name;
+            $image->move($destinationPath, $name);
+            $event->photo = $name;
         }
 
-        try{
-            $file = $request->file('file');
-            $getImageName = time().'.'.$file->getClientOriginalExtension();
-            $file->move(public_path('images/Event'), $getImageName);
-            $event = Event::where('id', $id)->update([
-                'name' => $request->name,
-                'detail' => $request->detail,
-                'description' => $request->description,
-                'start' => $request->start,
-                'finish' => $request->finish,
-                'quota' => $request->quota,
-                'photo' => $file->getClientOriginalName()
-            ]);
-
-            return response()->json([
-                'message' => 'Data has been updated',
-                'data' => $event
-            ], 200);
-        } catch(\Throwable $th){
-            return response()->json([
-                'message' => $th,
-                'data' => null
-            ], 400);
-        }
+        $event->name = $request->name;
+        $event->detail = $request->detail;
+        $event->description = $request->description;
+        $event->start = $request->start;
+        $event->finish = $request->finish;
+        $event->location = $request->location;
+        $event->quota = $request->quota;
+        $event->save();
+        return redirect('admin/event');
     }
 
     /**
