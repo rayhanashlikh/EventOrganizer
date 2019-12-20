@@ -11,6 +11,8 @@
 |
 */
 
+Route::view('/', 'choose');
+
 Route::group(['prefix'=>'user', 'middleware'=>['auth','role:member']], function() {
         Route::get('/{id}/detailevent', 'UserIndexController@detail');
         Route::get('/myevent', 'UserIndexController@myevent');

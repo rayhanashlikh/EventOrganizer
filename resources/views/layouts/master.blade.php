@@ -20,33 +20,32 @@
 
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav mr-auto">
-        <li class="nav-item active">
-            <a class="nav-link" href="/user">Beranda</a>
-        </li>
-        <li class="nav-item active">
-            <a class="nav-link" href="about">Tentang</a>
-        </li>
-        <li class="nav-item active">
-            <a class="nav-link" href="contact">Kontak</a>
-        </li>
+            <li class="nav-item active">
+                <a class="nav-link" href="/user">Beranda</a>
+            </li>
+            <li class="nav-item active">
+                <a class="nav-link" href="about">Tentang</a>
+            </li>
+            <li class="nav-item active">
+                <a class="nav-link" href="contact">Kontak</a>
+            </li>
         </ul>
-        <form class="form-inline my-2 my-lg-0">
-        <button class="btn btn-outline-primary my-2 my-sm-0" type="submit">Daftar</button> &nbsp 
-        <button class="btn btn-primary my-2 my-sm-0" type="submit"><a href="">Masuk</a></button>
-        </form>
+        <div class="dropdown">
+            <a class="btn btn-primary dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                Menu
+            </a>
+
+            <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                <a class="dropdown-item" href="/home">Akun</a>
+            </div>
+        </div>
     </div>
     </nav>
         
     @yield('header')
     @yield('content')
-    <footer class="jumbotron bg-light"> 
-        <div class="row"> 
-            <div class="col-lg-6"> © Copyright SANTREN KODING 2018 </div> 
-            <div class="col-lg-6 text-right"> 
-                <a href="" class="btn btn-outline-primary"> back to top </a> 
-            </div> 
-        </div> 
-    </footer>
+
+    <br>
     
     
     @yield('js')
