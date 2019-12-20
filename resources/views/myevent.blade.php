@@ -16,70 +16,33 @@
 @section('content')
     <br>
     <div class="container bg-light p-5">
-    <h2 class="text-center">Event Yang Diikuti</h2><br>
+        <h2 class="text-center">Event Yang Diikuti</h2><br>
         <div class="row">
-            <div class="col-lg-12 bCard p-3">
-                <div class="row">
-                <div class="col-lg-2">
-                <img
-                src="https://apkcrate.com/wp-content/uploads/2018/03/4839/5a9d4ee44dd42.png" width="100%" alt="">
+            @foreach($event as $events)
+                <div class="col-lg-12 bCard p-3">
+                    <div class="row">
+                        <div class="col-lg-2">
+                        <img src="../uploads/{{$events->photo}}" width="100%" alt="">
+                        </div>
+                    <div class="col-lg-7 text-justify">
+                        <h4>{{$events->name_event}}</h4>
+                        <p>{{$events->detail}}</p>
+                    </div>
+                    <div class="col-lg-3 text-right">
+                        <form class="" action="/users/{{$events->idparticipants }}" method="post">
+                        {{csrf_field()}}
+                        <a href="/users/{{$events->id}}/detailevent" class="btn btn-primary btn-sm"
+                        name="button">Detail</a>
+                        <button type="submit" class="btn btn-danger btn-sm" onclick="confirm('Yakin ingin membatalkan ?')" name="button">Batalkan</button>
+                        </form>
+                    </div>
+                    </div>
                 </div>
-                <div class="col-lg-7 text-justify">
-                <h4>Nama event yang sudah diikuti</h4>
-                <p>Ini adalah tempat deskripsi event yang bisa kita tampilkan nantinya di
-                halaman eventku. Halaman eventku adalah halaman yang fungsinya untuk menampilkan macam -
-                macam event yang sudah kita ikuti.</p>
-                </div>
-                <div class="col-lg-3 text-right">
-                <button type="button" class="btn btn-primary btn-sm"
-                name="button">Detail</button>
-                <button type="button" class="btn btn-danger btn-sm" onclick="confirm('Yakin ingin membatalkan ?')" name="button">Batalkan</button>
-                </div>
-                </div>
-                </div>
-                <div class="col-lg-12 bCard p-3 mt-3">
-                <div class="row">
-                <div class="col-lg-2">
-                <img
-                src="https://apkcrate.com/wp-content/uploads/2018/03/4839/5a9d4ee44dd42.png" width="100%" alt="">
-                </div>
-                <div class="col-lg-7 text-justify">
-                <h4>Nama event yang sudah diikuti</h4>
-                <p>Ini adalah tempat deskripsi event yang bisa kita tampilkan nantinya di
-                halaman eventku. Halaman eventku adalah halaman yang fungsinya untuk menampilkan macam -
-                macam event yang sudah kita ikuti.</p>
-                </div>
-                <div class="col-lg-3 text-right">
-                <button type="button" class="btn btn-primary btn-sm"
-                name="button">Detail</button>
-                <button type="button" class="btn btn-danger btn-sm"
-                name="button">Batalkan</button>
-                </div>
-                </div>
-                </div>
-                <div class="col-lg-12 bCard p-3 mt-3">
-                <div class="row">
-                <div class="col-lg-2">
-                <img
-                src="https://apkcrate.com/wp-content/uploads/2018/03/4839/5a9d4ee44dd42.png" width="100%" alt="">
-                </div>
-                <div class="col-lg-7 text-justify">
-                <h4>Nama event yang sudah diikuti</h4>
-                <p>Ini adalah tempat deskripsi event yang bisa kita tampilkan nantinya di
-                halaman eventku. Halaman eventku adalah halaman yang fungsinya untuk menampilkan macam -
-                macam event yang sudah kita ikuti.</p>
-                </div>
-                <div class="col-lg-3 text-right">
-                <button type="button" class="btn btn-primary btn-sm"
-                name="button">Detail</button>
-                <button type="button" class="btn btn-danger btn-sm"
-                name="button">Batalkan</button>
-                </div>
-                </div>
-            </div>
+            @endforeach
         </div>
     </div>
     <br>
+
 @endsection
 @section('js')
 @endsection

@@ -26,11 +26,11 @@ Tambah Event
                     <label>Deskripsi</label>
                     <input type="text" name="description" placeholder="Deskripsi" class="form-control"><br>
                     <label>Dimulai</label>
-                    <input type ="time" name="start" placeholder="Dimulai Pada" class="form-control">
+                    <input type ="date" name="start" placeholder="Dimulai Pada" class="form-control">
                 </div>
                 <div class="col-lg-6">
                     <label>Berakhir</label>
-                    <input type="time" name="finish" placeholder="Berakhir Pada" class="form-control">
+                    <input type="date" name="finish" placeholder="Berakhir Pada" class="form-control">
                     <label>Lokasi</label>
                     <input type="text" name="location" placeholder="Lokasi" class="form-control">
                 </div>

@@ -15,8 +15,8 @@ class EventSeeder extends Seeder
             'name_event' => 'Balap Kecoa',
             'detail'=> 'Ini detail',
             'description' => 'ini Deskripsi',
-            'start' => '07.00',
-            'finish' => '07.00',
+            'start' => '2019-10-10',
+            'finish' => '2019-10-22',
             'location' => 'Gedung Putih Amerika',
             'quota' => '111',
             'photo' => 'arya.jpg' 

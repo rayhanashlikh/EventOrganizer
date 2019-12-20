@@ -13,9 +13,9 @@
 
 Route::group(['prefix'=>'user', 'middleware'=>['auth','role:member']], function() {
         Route::get('/{id}/detailevent', 'UserIndexController@detail');
-        Route::get('/edit', 'UserIndexController@edit');
-        Route::post('/daftarevent', 'UserIndexController@event');
-        Route::post('/simpan', 'UserIndexController@simpan');
+        Route::get('/myevent', 'UserIndexController@myevent');
+        Route::get('/event', 'UserIndexController@event');
+        Route::post('/{id}/daftar', 'UserIndexController@detail');
         Route::get('/', 'UserIndexController@index');
 });
 

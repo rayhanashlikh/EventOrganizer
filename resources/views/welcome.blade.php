@@ -22,7 +22,7 @@
         <h1 class="Judul">Daily Events</h1>
         <p class="subJudul">"Tingkatkan Kemampuanmu"</p>
         <hr color="white" width="60%">
-        <a href="event" class="btn btn-primary">Lihat semua Event</a>
+        <a href="user/event" class="btn btn-primary">Lihat semua Event</a>
         <!-- <button class="btn btn-primary">Lihat Semua Event</button>   -->
     </div>
 @endsection 
@@ -38,12 +38,11 @@
                 @foreach($event as $events)
                     <div class="col-lg-3 col-md-4 col-sm-12">
                         <div class="card" >
-                            <img class="card-img-top"
-                            src="http://techtrends.tech/wp-content/uploads/2017/02/tech.jpg" alt="Card image cap">
+                            <img class="card-img-top" src="http://techtrends.tech/wp-content/uploads/2017/02/tech.jpg" alt="Card image cap">
                         <div class="card-body">
                             <h5 class="card-title">{{$events->name_event}}</h5>
                             <p class="card-text">{{$events->description}}</p>
-                            <a href="#" class="btn btn-primary">Detail</a>
+                            <a href="user/{{$events->id}}/detailevent" class="btn btn-primary">Detail</a>
                         </div>
                     </div>
                 </div>

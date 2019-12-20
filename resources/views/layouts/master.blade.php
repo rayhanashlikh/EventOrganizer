@@ -21,7 +21,7 @@
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav mr-auto">
         <li class="nav-item active">
-            <a class="nav-link" href="/">Beranda</a>
+            <a class="nav-link" href="/user">Beranda</a>
         </li>
         <li class="nav-item active">
             <a class="nav-link" href="about">Tentang</a>
@@ -32,7 +32,7 @@
         </ul>
         <form class="form-inline my-2 my-lg-0">
         <button class="btn btn-outline-primary my-2 my-sm-0" type="submit">Daftar</button> &nbsp 
-        <button class="btn btn-primary my-2 my-sm-0" type="submit">Masuk</button>
+        <button class="btn btn-primary my-2 my-sm-0" type="submit"><a href="">Masuk</a></button>
         </form>
     </div>
     </nav>

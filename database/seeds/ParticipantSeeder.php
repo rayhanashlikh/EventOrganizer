@@ -12,7 +12,7 @@ class ParticipantSeeder extends Seeder
     public function run()
     {
         DB::table('participants')->insert([
-            'user_id' => '4',
+            'user_id' => '1',
             'event_id' => '2',
         ]);
     }

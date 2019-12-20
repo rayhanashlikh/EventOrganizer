@@ -21,7 +21,7 @@
                     <div class="card-body">
                         <h5 class="card-title">{{$events->name_event}}</h5>
                             <p class="card-text">{{$events->description}}</p>
-                        <a href="#" class="btn btn-primary">Detail</a>
+                        <a href="/detail" class="btn btn-primary">Detail</a>
                     </div>  
                 </div>
             </div>

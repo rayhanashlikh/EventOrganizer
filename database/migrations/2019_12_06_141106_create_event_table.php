@@ -18,8 +18,8 @@ class CreateEventTable extends Migration
             $table->string('name_event');
             $table->string('detail');
             $table->string('description');
-            $table->time('start');
-            $table->time('finish');
+            $table->date('start');
+            $table->date('finish');
             $table->string('location');
             $table->integer('quota');
             $table->string('photo')->nullable();
