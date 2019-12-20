@@ -34,6 +34,7 @@ User
                     <td>{{$participants->name_event}}</td>
                     <td>
                         <form action="/admin/participant/{{$participants->id}}" class="row" method="post">
+                            @method('delete')
                             {{csrf_field()}}
                             <!-- <button type="button" class="btn btn-sm btn-danger" name="button"
                             onclick="confirm('Yakin ingin menghapus ?')"> <i class="fa fa-trash"></i> Hapus</button>

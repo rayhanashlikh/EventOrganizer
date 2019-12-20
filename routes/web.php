@@ -11,22 +11,15 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
+Route::group(['prefix'=>'user', 'middleware'=>['auth','role:member']], function() {
+        Route::get('/{id}/detailevent', 'UserIndexController@detail');
+        Route::get('/edit', 'UserIndexController@edit');
+        Route::post('/daftarevent', 'UserIndexController@event');
+        Route::post('/simpan', 'UserIndexController@simpan');
+        Route::get('/', 'UserIndexController@index');
 });
 
-Route::view('/home', 'admin.index');
-Route::get('/event', function(){
-    return view('event');
-});
-Route::get('/detailevent', function(){
-    return view('detailevent');
-});
-Route::get('/myevent', function(){
-    return view('myevent');
-    });
-Route::view('/editprofile', 'editprofile');    
-Route::group(['prefix'=>'admin'], function () {
+Route::group(['prefix'=>'admin', 'middleware'=>['auth','role:admin']], function () {
     Route::get('/', function(){
         return view('admin.dashboard');
     });
@@ -49,7 +42,10 @@ Route::group(['prefix'=>'admin'], function () {
     Route::group(['prefix'=>'participant'], function () {
         Route::get('/', 'ParticipantController@index');
         Route::get('/{id}/view','ParticipantController@view');
-        Route::post('/{id}', 'ParticipantController@destroy');
+        Route::delete('/{id}', 'ParticipantController@destroy');
         });
        
 });
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
