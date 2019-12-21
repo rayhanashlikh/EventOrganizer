@@ -1,33 +1,41 @@
 @extends('layouts.master')
 
 @section('css')
-
+<link rel="stylesheet" href="{{asset('css/allevent.css')}}">
 @endsection
+
+@section('title', 'Event')
 
 @section('header')
-
 @endsection
-
 @section('content')
-    <div class="container text-center">
-    <br>
-    <h2>Daily Events</h2>
-    <p>Event yang diadakan Santren Koding</p>
-        <div class="row">
-        @foreach($event as $events)
-            <div class="col-lg-3 col-md-4 col-sm-12">
-                <div class="card" >
-                    <img class="card-img-top" src="http://techtrends.tech/wp-content/uploads/2017/02/tech.jpg" alt="Card image cap">
-                    <div class="card-body">
-                        <h5 class="card-title">{{$events->name_event}}</h5>
-                            <p class="card-text">{{$events->description}}</p>
-                        <a href="/user/{{$events->id}}/detailevent" class="btn btn-primary">Detail</a>
-                    </div>  
-                </div>
-            </div>
-        @endforeach
+<div class="jumbotron content2">
+        <div class="container text-center">
+            <h3>All of the Event you can see it here</h3>
+            <p>Enjoy your day.</p>
+            <hr class="garis">
         </div>
-    </div><br>
+                @if (session('status'))
+                    <div class="alert alert-success">
+                        {{ session('status') }}
+                    </div>
+                @endif
+        <br>
+            <div class="row row-cols-ms-1 row-cols-md-4">
+                @foreach($event as $evnt)
+                <div class="col mb-3">
+                    <div class="card h-100">
+                    <div class="card-body">
+                        <h5 class="card-title">{{$evnt->name_event}}</h5>
+                        <p class="card-text">Date  = {{$evnt->start}} s.d {{$evnt->finish}}</p>
+                        <p class="card-text">Location = {{$evnt->location}}</p>
+                    </div>
+                        <a href="/user/{{$evnt->id}}" class="btn btn-primary tombol">Detail Event</a>
+                    </div>
+                </div>
+               @endforeach
+            </div>
+    </div>
 @endsection
 @section('js')
 @endsection

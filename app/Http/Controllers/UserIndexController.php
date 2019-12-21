@@ -19,30 +19,42 @@ class UserIndexController extends Controller
     public function index()
     {
         $event = Event::get();
-        return view('welcome')->with('event', $event);
+        return view('event', compact('event'));
     }
 
-    public function event(){
-        $event = Event::get();
-        return view('event')->with('event', $event);
+    public function show($id){
+        $user = Auth::user();
+        $event = Event::find($id);
+        $participant = Participant::where('event_id', $id)->get();
+        $ket = Participant::where('user_id', $user->id)->get();
+        return view('detailevent', compact('event', 'participant', 'ket'));
     }
-    public function detail($id)
+    public function daftar($id)
     {
-        $data['user'] = Auth::user();
-        $data['detail'] = Event::find($id);
-        $data['participant'] = Participant::where('event_id', $id)->get();
-        $data['ket'] = Participant::where('user_id', $data['user']->id)->get();
-        return view('detailevent')->with($data);
+        $user = Auth::user();
+        $event = Event::find($id);
+        $participant = Participant::where('event_id', $id)->get();
+        $ket = Participant::where('user_id', $id)->get();
+        $create = new Participant;
+        $create->user_id = $user->id;
+        $create->event_id = $event->id;
+        $create->save();
+        return redirect('/user')->with('status', 'Success join the event');
     }
     public function myevent(){
-        $peserta = DB::table('participants')
+        $participant = DB::table('participants')
         ->join('events', 'participants.event_id', '=', 'events.id')
         ->join('users', 'participants.user_id', '=','users.id')
         ->where('user_id','=',Auth::user()->id)
         ->select('events.*', 'participants.id as idparticipants')
         ->get();
-        return view('myevent')->with('event', $peserta);
+        return view('myevent', compact('participant'));
         }
         
+    public function destroy($id){
+        $participant = Participant::find($id);
+        $participant->delete();
+        return redirect('/user')->with('status', 'Successfully Cancel The Event');
+    }
 
 }

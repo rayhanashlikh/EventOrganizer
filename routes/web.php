@@ -11,14 +11,16 @@
 |
 */
 
-Route::view('/', 'choose');
+Route::group(['prefix'=>''],function(){
+    Route::get('/', function(){
+        return view('welcome');
+    });
+});
 
-Route::group(['prefix'=>'user', 'middleware'=>['auth','role:member']], function() {
-        Route::get('/{id}/detailevent', 'UserIndexController@detail');
+Route::group(['prefix'=>'', 'middleware'=>['auth','role:member']], function() {
+        Route::resource('user', 'UserIndexController');
         Route::get('/myevent', 'UserIndexController@myevent');
-        Route::get('/event', 'UserIndexController@event');
-        Route::post('/{id}/daftar', 'UserIndexController@detail');
-        Route::get('/', 'UserIndexController@index');
+        Route::post('user/{id}/daftar', 'UserIndexController@daftar');
 });
 
 Route::group(['prefix'=>'admin', 'middleware'=>['auth','role:admin']], function () {
